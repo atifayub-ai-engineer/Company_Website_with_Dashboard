@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load static %}
+{% block title%} Login {% endblock %}
+{% block content %}
+<div class="flex h-screen bg-indigo-700">
+    <div class="w-full max-w-xs m-auto bg-indigo-100 rounded p-5">
+          <header>
+            <img class="w-20 mx-auto mb-5" src="{% static 'logo1.png' %}" />
+          </header>
+          <form action="{% url 'login' %}" method="POST">
+              {% csrf_token %}
+            <div>
+                <p class="text-red-500">{{ message }}</p>
+              <label class="block mb-2 text-indigo-500" for="username">Username</label>
+              <input class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300" type="text" name="us">
+            </div>
+            <div>
+              <label class="block mb-2 text-indigo-500" for="password">Password</label>
+              <input class="w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300" type="password" name="ps">
+            </div>
+            <div>
+              <input class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 mb-6 rounded" type="submit">
+            </div>
+          </form>
+          <footer>
+            <a class="text-indigo-600 hover:text-stone-950 text-sm float-left" href="{% url 'reset_password' %}">Forgot Password?</a>
+            <a class="text-indigo-600 hover:text-zinc-950 text-sm float-right" href="{% url 'register' %}">Create Account</a>
+          </footer>
+        </div>
+    </div>
+</body>
+{% endblock %}

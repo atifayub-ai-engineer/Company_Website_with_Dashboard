@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load static %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<style>
+</style>
+<div class="bg-gray-100 flex h-screen items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div class="w-full1 max-w-md space-y-8" style="margin-bottom: 50px">
+        <div class="bg-white shadow-md rounded-md p-6">
+
+            <img class="mx-auto h-12 w-auto" src="{% static 'logo1.png' %}" alt="" />
+
+            <h2 class="my-3 text-center text-3xl font-bold tracking-tight text-gray-900">
+                Sign up for an account
+            </h2>
+            <p class= 'text-rose-600'>
+                {% if message %}
+            {{ message }}
+            {% endif%}
+            </p>
+
+            <form class="space-y-6" method="POST"  action="{% url 'register' %}" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                <div>
+                    <label for="new-password" class="block text-sm font-medium text-gray-700">Username</label>
+                    <div class="mt-1">
+                        <input name="us" type="username" required
+                            class="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <div class="mt-1">
+                        <input name="em" type="email-address" autocomplete="email-address" required
+                            class="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <div class="mt-1">
+                        <input name="ps" type="password" autocomplete="password" required
+                            class="px-2 py-3 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-sky-500 focus:outline-none focus:ring-sky-500 sm:text-sm" />
+                    </div>
+                </div>
+
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
+                    <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" name="img">
+
+                    <button type="submit"
+                        class="flex w-full justify-center rounded-md border border-transparent bg-sky-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2">Register
+                        Account
+                        </button> <br>
+                <a class="text-blue-600" class="text-center" href="{%url 'login'%}"> Already have an Account?</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<br> <br>
+</body>
+{% endblock %}

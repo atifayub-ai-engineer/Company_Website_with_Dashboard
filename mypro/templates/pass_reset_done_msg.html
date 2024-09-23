@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% block title%} Password Reset Done {% endblock %}
+{% block content %}
+<style>
+    #sec{
+        align-content: center;
+        margin-left: 250px;
+        /*margin-top: 70px;*/
+    }
+</style>
+<body>
+<br>
+<div class="container mx-auto px-8 lg:flex">
+    <br>
+                <div class="text-center lg:text-left lg:w-1/2" id="sec">
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-none">Password Reset Link Sent Successfully!</h1>
+                    <p class="text-xl lg:text-2xl mt-6 font-light">We’ve emailed you instructions for setting your password, if an account exists with the email you entered. You should receive them shortly.
+                    </p>
+                    <p class="mt-8 md:mt-12">
+                        <a href="https://mail.google.com/mail/u/0/" target="_blank"> <button type="button"
+                            class=" py-4 px-12 bg-blue-500 hover:bg-blue-600 rounded text-white">Open Gmail</button></a> <br>
+                        <br><p>If you don’t receive an email, please make sure you’ve entered the address you registered with, and check your spam folder. </p>
+                    </p>
+                </div>
+</div>
+<br><br>
+</body>
+{%endblock%}
